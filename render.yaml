@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: freshrss-sync
+    env: docker
+    plan: free
+    region: frankfurt
+    repo: https://github.com/FreshRSS/FreshRSS
+    branch: master
+    envVars:
+      - key: TZ
+        value: Europe/Zurich
+    disk:
+      name: freshrss-data
+      mountPath: /var/www/FreshRSS/data
+      sizeGB: 1
